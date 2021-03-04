@@ -1,0 +1,23 @@
+{
+    "form_factor" : "PCIe",
+    "height" : "FH",
+    "length" : "HL",
+    "interfaces" : "QSFP56",
+    "port_interface_speed": "100G",
+    "port_count" : 2,
+    "code_name" : "Dayton Peak",
+    "product_name": "Dayton Peak DP QSFP56 FHHL",
+    "silicon_name" : "Mount Evans",
+    "product_description" : "Intel Ethernet Network Adapter",
+    "pba" : "MXXXXX-XXX",
+    "design_engineer" : "Andrew Monk",
+    "mechanical_engineer" : "Raul Acevedo",
+    "test_engineer" : "Luis Sierra",
+    "materials_pm" : "Chris Haqq",
+    "program_manager" : "Guy Schiffler",
+    "prd_revision" : 0.01,
+    "form_factor_specification": "[UPDATE-ME]",
+    "port_interface_spec": "[UPDATE-ME]",
+    "silicon_datasheet": "[UPDATE-ME]"
+
+}
