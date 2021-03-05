@@ -21,20 +21,22 @@ class Printer():
     def write(self, doc, item, variables: dict):
         raise NotImplementedError
 
-    def _write_text(self, doc: pylatex.Document, text: str, variables: dict):
-        assert isinstance(text, str), f"{self.__class__.__name__} is expecting text to write!"
+    def _format_text(self, text: str, variables: dict):
+        assert isinstance(text,
+                          str), f"{self.__class__.__name__} is expecting text to write!"
         text_to_write = text.format(**variables)
-        if self.debug:
-            return text_to_write
-        else:
-            doc.append(text_to_write)
+        return text_to_write
 
 
 class TextPrinter(Printer):
     PRINTER_TYPE: str = "TEXT"
 
     def write(self, doc, item, variables: dict):
-        return self._write_text(doc, item, variables)
+        text = self._format_text(item, variables)
+        if self.debug:
+            return text
+        else:
+            doc.append(text)
 
 
 class FigurePrinter(Printer):
@@ -60,16 +62,20 @@ class TablePrinter(Printer):
             table_spec = item.get("table_spec", "|" + "X[c] | " * num_headers)
             table_spread = item.get("table_spread", "40pt")
             hlines = item.get("horizontal_lines", True)
-            with centered.create(pylatex.Tabu(table_spec, spread=table_spread)) as data_table:
+            with centered.create(pylatex.Tabu(table_spec,
+                                              spread=table_spread)) as data_table:
                 if hlines:
                     data_table.add_hline()
                 if num_headers > 0:
-                    data_table.add_row(item["headers"], mapper=[pylatex.utils.bold])
+                    data_table.add_row(item["headers"],
+                                       mapper=[pylatex.utils.bold])
                     data_table.add_hline()
                 for data_row in item["table_data"]:
+                    print("O", data_row)
                     for i, data in enumerate(data_row):
-                        if isinstance(item, str):
-                            data_row[i] = self._write_text(doc, data, variables=variables)
+                        if isinstance(data, str):
+                            data_row[i] = self._format_text(data, variables=variables)
+                    print("M", data_row)
                     data_table.add_row(data_row)
                     if hlines:
                         data_table.add_hline()

@@ -67,9 +67,9 @@ class DocumentWriter(BaseWriterClass):
         with pagestyle.create(pylatex.Head("C")) as header_center:
             with header_center.create(
                     pylatex.MiniPage(width=pylatex.NoEscape(r"0.49\textwidth"), pos="c")) as text_wrapper:
-                text_wrapper.append("NPO Hardware Example\n")
-                text_wrapper.append("Dayton Peak Example\n")
-                text_wrapper.append("HLD Example")
+                text_wrapper.append("NPO Hardware\n")
+                text_wrapper.append("Dayton Peak Dual Port\n")
+                text_wrapper.append("HLD")
 
         ''' FOOTER PAGE LEFT '''
         with pagestyle.create(pylatex.Foot("L")) as footer_left:
