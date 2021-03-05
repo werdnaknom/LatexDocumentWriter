@@ -71,11 +71,9 @@ class TablePrinter(Printer):
                                        mapper=[pylatex.utils.bold])
                     data_table.add_hline()
                 for data_row in item["table_data"]:
-                    print("O", data_row)
                     for i, data in enumerate(data_row):
                         if isinstance(data, str):
                             data_row[i] = self._format_text(data, variables=variables)
-                    print("M", data_row)
                     data_table.add_row(data_row)
                     if hlines:
                         data_table.add_hline()
