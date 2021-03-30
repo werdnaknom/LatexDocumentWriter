@@ -19,8 +19,12 @@ class DocumentWriter(BaseWriterClass):
     def _read_project_variables(self) -> dict:
         project_json_path = self.cfg.get("CONFIGURATION", "project_json")
         with open(project_json_path, 'r') as json_file:
-            read = json_file.read()
-            json_contents = json.loads(read)
+            try:
+                read = json_file.read()
+                json_contents = json.loads(read)
+            except:
+                print(read)
+                raise
         return json_contents
 
     def _create_document(self) -> pylatex.Document:

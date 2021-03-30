@@ -1,5 +1,6 @@
 import typing as t
 from pathlib import Path
+import os
 
 import pylatex
 
@@ -44,7 +45,8 @@ class FigurePrinter(Printer):
 
     def write(self, doc, item, variables: dict):
         with doc.create(pylatex.Figure(position="h!")) as figure:
-            filepath = item["filename"]
+            filename = item["filename"]
+            filepath = Path(variables["cwd"]).joinpath(filename).as_posix()
             if not Path(filepath).exists():
                 filepath = variables["image404"]
             figure.add_image(filepath, width=item.get("width", "120px"))

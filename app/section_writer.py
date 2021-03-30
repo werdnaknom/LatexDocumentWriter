@@ -14,13 +14,16 @@ CONFIGURATION_FILE_NAME = "section_config.ini"
 
 class SectionWriter(BaseWriterClass):
 
-    def __init__(self, section_header: str, section_path: Path, variable_dict: dict):
+    def __init__(self, section_header: str, section_path: Path,
+                 variable_dict: dict):
         self.section_header = section_header
         self.path = section_path
         self.processor = TextProcessor()
         self.variables = variable_dict
+        self.variables['cwd'] = self.path.as_posix()
         configuration_file = self.path.joinpath(CONFIGURATION_FILE_NAME)
-        super(SectionWriter, self).__init__(configuration_file=str(configuration_file))
+        super(SectionWriter, self).__init__(
+            configuration_file=str(configuration_file))
 
     def write(self, doc: pylatex.Document):
         with doc.create(pylatex.Section(self.section_header)):
@@ -42,5 +45,10 @@ class SectionWriter(BaseWriterClass):
     def load_file(self, filename: str):
         file = self.path.joinpath(filename).with_suffix(".json")
         with open(file, 'r') as json_file:
-            json_contents = json.loads(json_file.read())
+            read = json_file.read()
+            try:
+                json_contents = json.loads(read)
+            except json.decoder.JSONDecodeError:
+                print(read)
+                raise
         return json_contents
