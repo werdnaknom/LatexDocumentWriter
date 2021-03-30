@@ -23,11 +23,18 @@ class SectionWriter(BaseWriterClass):
         super(SectionWriter, self).__init__(configuration_file=str(configuration_file))
 
     def write(self, doc: pylatex.Document):
+        #Write the section header and any section text
         with doc.create(pylatex.Section(self.section_header)):
             self.interpret_ini(doc=doc)
 
-    def interpret_ini(self, doc: pylatex.Document):
-        raw_init_text = self._get_section_text()
+        #Write the subsection header and any subsection text
+        subsections = dict(self.cfg["SUBSECTIONS"])
+        for subsection_name, content in subsections.items():
+            with doc.create(pylatex.Subsection(subsection_name)):
+                self.interpret_ini(doc=doc, text=content)
+
+    def interpret_ini(self, doc: pylatex.Document, text:str = None):
+        raw_init_text = self._get_section_text(text=text)
         for printer, item in self.processor.process_text(raw_init_text):
             if isinstance(printer, TextPrinter):
                 printer.write(doc, item, variables=self.variables)
@@ -35,8 +42,9 @@ class SectionWriter(BaseWriterClass):
                 loaded_contents = self.load_file(item)
                 printer.write(doc, loaded_contents, variables=self.variables)
 
-    def _get_section_text(self) -> str:
-        text = self.cfg.get("SECTION_TEXT", "text")
+    def _get_section_text(self, text:str=None) -> str:
+        if text == None:
+            return self.cfg.get("SECTION_TEXT", "text")
         return text
 
     def load_file(self, filename: str):
