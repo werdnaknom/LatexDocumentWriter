@@ -17,7 +17,7 @@ class SectionWriter(BaseWriterClass):
     def __init__(self, section_header: str, section_path: Path,
                  variable_dict: dict):
         self.section_header = section_header
-        self.path = section_path
+        self.path = section_path.absolute()
         self.processor = TextProcessor()
         self.variables = variable_dict
         self.variables['cwd'] = self.path.as_posix()
@@ -31,10 +31,15 @@ class SectionWriter(BaseWriterClass):
             self.interpret_ini(doc=doc)
 
         #Write the subsection header and any subsection text
-        subsections = dict(self.cfg["SUBSECTIONS"])
-        for subsection_name, content in subsections.items():
-            with doc.create(pylatex.Subsection(subsection_name)):
-                self.interpret_ini(doc=doc, text=content)
+        try:
+            subsections = dict(self.cfg["SUBSECTIONS"])
+            for subsection_name, content in subsections.items():
+                with doc.create(pylatex.Subsection(subsection_name)):
+                    self.interpret_ini(doc=doc, text=content)
+        except configparser.InterpolationSyntaxError:
+            print(self.cfg["SUBSECTIONS"])
+            print(self.section_header)
+            raise
 
     def interpret_ini(self, doc: pylatex.Document, text:str = None):
         raw_init_text = self._get_section_text(text=text)

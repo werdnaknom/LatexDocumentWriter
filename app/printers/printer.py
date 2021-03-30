@@ -48,11 +48,12 @@ class FigurePrinter(Printer):
             filename = item["filename"]
             filepath = Path(variables["cwd"]).joinpath(filename).as_posix()
             if not Path(filepath).exists():
-                filepath = variables["image404"]
+                filepath = variables["image_404"]
             figure.add_image(filepath, width=item.get("width", "120px"))
             caption = item.get("caption", None)
             if caption:
                 figure.add_caption(caption)
+        doc.append(pylatex.NewPage())
 
 
 class TablePrinter(Printer):

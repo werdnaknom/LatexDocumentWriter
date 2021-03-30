@@ -13,7 +13,8 @@ class TextProcessor():
     '''
     Takes in a text document and turns it into LaTeX
     '''
-    VARIABLE_PATTERN: str = "\[ITEM-.*[0-9]\]"
+    VARIABLE_PATTERN: str = "\[ITEM-FIGURE[0-9]+\]|\[ITEM-LIST[0-9]+\]|\[" \
+                            "ITEM-TABLE[0-9]+\]"
     text_printer: TextPrinter
     pattern_printers: t.List[Printer]
     cfg: configparser.ConfigParser
@@ -31,7 +32,8 @@ class TextProcessor():
         CHECK_PATTERN = "\[ITEM-"
         for pattern in patterns:
             found = re.findall(CHECK_PATTERN, pattern)
-            assert len(found) <= 1, f"{pattern} found is invalid! There should only be one [ITEM] per line"
+            #assert len(found) <= 1, f"{pattern} found is invalid! There
+            # should only be one [ITEM] per line"
 
     def _find_text_to_print(self, text: str, pattern: str, start: int) -> t.Tuple[str, int]:
         text_end_loc = text.find(pattern)
