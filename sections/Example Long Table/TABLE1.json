@@ -1,0 +1,17 @@
+{
+  "title": "Revision History",
+  "headers": [
+    "Version",
+    "Date",
+    "Contributors / Reviewers",
+    "Description Of Changes"
+  ],
+  "table_data": [
+    [
+      0.01,
+      "02/18/2020",
+      "Andrew Monk",
+      "Initial Document Creation"
+    ]
+  ]
+}

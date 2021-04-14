@@ -1,0 +1,9 @@
+{
+  "list_items" : [
+    "This adapter was designed to meet the requirements defined in {product_name} PRD Rev {prd_revision}.",
+    "This adapter was designed to support {port_interface_speed} in the {interfaces} form factor.",
+    "This adapter was designed to comply with the {form_factor_specification}.",
+    "This adapter was designed to comply with {port_interface_spec} channel loss requirements.",
+    "This adapter was designed to comply with the {silicon_datasheet}."
+  ]
+}
