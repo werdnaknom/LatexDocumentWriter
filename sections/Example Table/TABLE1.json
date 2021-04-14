@@ -1,5 +1,8 @@
 {
-  "title": "Revision History",
+  "title": "Example Table",
+  "horizontal_lines": true,
+  "table_spread": "40pt",
+  "longtable": false,
   "headers": [
     "Version",
     "Date",

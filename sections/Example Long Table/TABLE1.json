@@ -1,5 +1,9 @@
 {
-  "title": "Revision History",
+  "title": "Example Long Table",
+  "longtable": true,
+  "horizontal_lines": true,
+  "table_spec": "|X[lm]|X[cm]|X[cm]|X[cm]|",
+  "table_spread": "100in",
   "headers": [
     "Version",
     "Date",
@@ -10,8 +14,38 @@
     [
       0.01,
       "02/18/2020",
-      "Andrew Monk",
-      "Initial Document Creation"
+      "NoEscape(\\pm)Andrew Monk",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor dui, sodales ac vehicula sed, semper sit amet ex. Proin feugiat augue nisi, nec ultricies eros fermentum non. Nulla dictum porttitor leo, a mattis massa lobortis et. Sed odio diam, pretium in nulla vitae, tempor porta leo. Quisque ultrices augue quam. Donec in lacus quam. Sed feugiat est felis, vitae aliquam magna venenatis sit amet. Fusce ultricies, felis nec cursus gravida, nunc lacus feugiat lorem, a elementum lectus leo eget nisi."
+    ],
+    [
+      0.02,
+      "date",
+      "name",
+      "Pellentesque cursus libero eu tellus ullamcorper rhoncus. Ut elementum, mi vitae fringilla imperdiet, sapien ipsum volutpat lorem, non imperdiet urna nisl at nunc. Quisque malesuada tristique egestas. Quisque tempor pulvinar felis id congue. Nulla fermentum convallis ante ac euismod. Phasellus euismod lorem sed metus malesuada, non hendrerit erat fermentum. Vestibulum ipsum felis, ornare porta vehicula in, pellentesque sagittis tortor. Donec sed dolor viverra, cursus sapien non, consequat dui. Aenean non odio urna. Nunc eu metus magna. In non diam aliquet, scelerisque mauris id, placerat lacus. Nunc aliquet, urna hendrerit pellentesque ultricies, libero lectus aliquam velit, in sollicitudin justo massa ut magna. Mauris vitae lobortis neque."
+    ],
+    [
+      0.02,
+      "date",
+      "name",
+      "Mauris efficitur mattis semper. Duis ac metus nulla. Sed lacus odio, volutpat sit amet finibus eu, vestibulum non eros. Pellentesque ac velit ullamcorper, iaculis sapien a, iaculis arcu. Aenean at semper orci, nec bibendum diam. Maecenas sapien turpis, vehicula sed porttitor eget, finibus eget diam. In ligula quam, aliquet nec pellentesque ut, commodo et ligula. Aliquam nec orci a ex consectetur tempus id non odio. Phasellus sodales finibus mauris, at blandit elit lobortis eu. Curabitur at cursus felis, eget commodo mauris. Suspendisse erat turpis, luctus at lorem sed, feugiat feugiat urna. Nulla eu iaculis felis, sed luctus elit."
+    ],
+    [
+      0.02,
+      "date",
+      "name",
+      "Quisque mollis, erat vel aliquam scelerisque, urna enim ultricies elit, quis hendrerit tellus mi vitae augue. Nulla ac justo sit amet nibh ultricies mollis. Cras eros orci, vulputate id magna nec, feugiat imperdiet mi. Phasellus posuere mauris nec hendrerit gravida. Aenean id mollis quam, sit amet efficitur odio. Vivamus congue nisi sed libero bibendum, in semper ex mollis. Nullam tempus euismod ullamcorper. Fusce ullamcorper, mi vel tincidunt viverra, libero felis convallis libero, eget iaculis ipsum felis sit amet nunc. Aliquam erat volutpat. Aenean vestibulum elementum enim sit amet vehicula. Maecenas dapibus quam nec porta molestie. Praesent consequat vestibulum arcu vitae malesuada. Vivamus ac nibh eu nibh consectetur imperdiet nec eget tortor."
+    ],
+    [
+      0.02,
+      "date",
+      "name",
+      "Phasellus ac massa eu neque rutrum interdum a pharetra tortor. Praesent id egestas ex. Suspendisse eget dignissim magna. Proin consequat turpis et ligula vulputate, non condimentum neque posuere. Nullam iaculis maximus neque, tempor ultricies nisi faucibus dapibus. Praesent at diam purus. Curabitur luctus venenatis pulvinar. Integer eu nulla iaculis, sodales lacus ut, bibendum odio. Aliquam placerat, tellus et rutrum porta, justo magna fringilla est, non pulvinar odio nunc ac odio. Vestibulum vitae nunc vel urna tincidunt scelerisque. Mauris ac imperdiet augue, ut pulvinar erat. Mauris ac blandit nibh. Donec sodales, eros ut pharetra vulputate, sem urna sollicitudin sapien, et semper odio nibh eget sem. Cras sed eros venenatis, facilisis tortor non, scelerisque nisi. Praesent at odio magna. Pellentesque iaculis ut nulla eu feugiat."
+    ],
+    [
+      0.02,
+      "date",
+      "name",
+      "End"
     ]
   ]
 }

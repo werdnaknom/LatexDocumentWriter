@@ -62,10 +62,12 @@ class TablePrinter(Printer):
     def write(self, doc, item, variables: dict):
         with doc.create(pylatex.Center()) as centered:
             num_headers = len(item["headers"])
-            table_spec = item.get("table_spec", "|" + "X[c] | " * num_headers)
+            table_spec = item.get("table_spec", "|" + "X[cm] | " * num_headers)
             table_spread = item.get("table_spread", "40pt")
             hlines = item.get("horizontal_lines", True)
-            with centered.create(pylatex.Tabu(table_spec,
+            #table = item.get('longtable', False)
+
+            with centered.create(pylatex.LongTabu(table_spec,
                                               spread=table_spread)) as data_table:
                 if hlines:
                     data_table.add_hline()
